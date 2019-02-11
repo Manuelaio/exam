@@ -1,0 +1,31 @@
+InputFile=open(‘insulin.gbk’)
+output_file= open(‘insulin.fasta’)
+import re
+flag=0
+#inizializzo con flag
+
+for line in InputFile:
+    if line[0:9] == 'ACCESSION':
+        AC= line.split()[1].strip()
+            output_file.write('>'+AC+'\n')
+
+#cerco AC e lo stampo in header of file
+
+	 if re.findall(r'ORGANISM', s):
+        s = s.strip('\n')
+        org = s.split(' ')[-2] + ' ' + s.split(' ')[-1]
+
+     if line [0:6] == 'ORIGIN':
+          flag=1
+          continue 
+     if flag == 1:
+        c=line.split()
+             if c != []:
+                     seq=''.join(c[1:])
+                    output_file.write(seq + org +  '\n')
+
+for l in lines[0:-1]:
+    output_file.write(l+'\n')
+    
+output_file.close()
+InputFile.close()
